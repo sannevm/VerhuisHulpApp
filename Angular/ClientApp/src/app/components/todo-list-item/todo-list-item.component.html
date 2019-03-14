@@ -1,9 +1,16 @@
 
 <div class="container py-5">  
   <div class="row">
-    <h1 id = "grey" class="mx-auto my-0 text-uppercase masthead">ToDo List</h1>
+    <h1 style="color:lavender" class="mx-auto my-0 text-uppercase masthead">ToDo List</h1>
+    <hr>
   </div>
 </div>
+
+<div class="container py-5">  
+    <div class="row">
+      <app-new-todo-item-modal class="mx-auto my-0"></app-new-todo-item-modal>
+    </div>
+  </div>
 
 <div class="container py-5">
    <div class="row">
@@ -14,7 +21,6 @@
         <mat-card-header>
             <mat-card-title>{{todoItem.description}}</mat-card-title>
             <mat-card-subtitle>
-                <!-- <mat-checkbox [(checked)]="todoItem.isDone" (change)="onChange($event, todoItem)">Done</mat-checkbox> -->
                 <mat-checkbox [checked]="todoItem.isDone"(change)="valueChange(todoItems,todoItem,$event)">Done</mat-checkbox>
             </mat-card-subtitle>
         </mat-card-header>

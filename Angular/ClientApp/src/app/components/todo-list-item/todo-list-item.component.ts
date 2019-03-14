@@ -60,12 +60,6 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
   }
 }
 
-//   onChange(event, todoItem) {
-
-//     console.log("onChange is aangeroepen");
-//     console.log("Id = ", todoItem.id);
-//     this.service.updateTodoItem(todoItem, todoItem.id);
-// }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
