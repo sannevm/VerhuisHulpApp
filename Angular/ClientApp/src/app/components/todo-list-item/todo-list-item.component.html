@@ -1,0 +1,28 @@
+
+<div class="container py-5">  
+  <div class="row">
+    <h1 id = "grey" class="mx-auto my-0 text-uppercase masthead">ToDo List</h1>
+  </div>
+</div>
+
+<div class="container py-5">
+   <div class="row">
+
+    <div *ngFor="let todoItem of todoItems" style="height:450px;" class="col-3 ">
+      <mat-card style="height: 150px">
+          
+        <mat-card-header>
+            <mat-card-title>{{todoItem.description}}</mat-card-title>
+            <mat-card-subtitle>
+                <!-- <mat-checkbox [(checked)]="todoItem.isDone" (change)="onChange($event, todoItem)">Done</mat-checkbox> -->
+                <mat-checkbox [checked]="todoItem.isDone"(change)="valueChange(todoItems,todoItem,$event)">Done</mat-checkbox>
+            </mat-card-subtitle>
+        </mat-card-header>
+        
+      </mat-card>
+    </div>
+
+  </div>
+</div>
+
+

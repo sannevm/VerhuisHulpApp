@@ -1,0 +1,43 @@
+h1 {
+    font-size: 72px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+.thumbnail {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    color: white;
+    background-color: grey;
+}
+
+  .row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row.display-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.mat-card {
+    opacity:0.8;
+}
+
+  .mat-card:hover {
+    opacity: 1;
+}
+a:hover {
+    text-decoration: none;
+}
