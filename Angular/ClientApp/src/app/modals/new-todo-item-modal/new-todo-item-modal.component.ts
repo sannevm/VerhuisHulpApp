@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 
 import {NgbModal, NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { TodoListItemService } from 'src/app/services/todo-list-item.service';
+import { TodoItem } from 'src/app/models/todo-item';
 
 @Component({
   selector: 'app-new-todo-item-modal',
@@ -9,8 +11,9 @@ import {NgbModal, NgbModule, ModalDismissReasons} from '@ng-bootstrap/ng-bootstr
 })
 export class NewTodoItemModalComponent {
   closeResult: string;
+  todoItems: TodoItem[];
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private service: TodoListItemService) {}
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -30,4 +33,18 @@ export class NewTodoItemModalComponent {
     }
   }
 
+  add(description: string): void {
+    console.log("Add wordt aangeroepen!");
+    description = description.trim();
+        
+    const newTodoItem: TodoItem = {description} as TodoItem;
+    this.service.addTodoItem(newTodoItem)
+      .subscribe(todoItem => {
+        // this.todoItems.push(todoItem);
+        // console.log('TodoItems now contains', this.todoItems);
+        this.service.getAll();
+      });
+  }
+
+  close(){window.location.reload();}
 }

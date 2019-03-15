@@ -34,5 +34,9 @@ export class TodoListItemService {
     console.log("url = ", url);
     return this.http.put<TodoItem>(url, todoItem, httpOptions);
   }
+
+  addTodoItem (todoItem: TodoItem): Observable<TodoItem> {
+    return this.http.post<TodoItem>(this.apiUrl, todoItem, httpOptions);
+  }
   
 }
