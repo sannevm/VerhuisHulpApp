@@ -38,5 +38,12 @@ export class TodoListItemService {
   addTodoItem (todoItem: TodoItem): Observable<TodoItem> {
     return this.http.post<TodoItem>(this.apiUrl, todoItem, httpOptions);
   }
+
+  deleteTodoItem(id: number): Observable<{}>{
+    console.log("deleteTodoItem in de service wordt aangeroepen");
+      const url = `${this.apiUrl}/${id}`;
+      return this.http.delete(url);
+    
+  }
   
 }

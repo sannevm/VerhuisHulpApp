@@ -10,25 +10,28 @@
     <div class="row">
       <app-new-todo-item-modal class="mx-auto my-0"></app-new-todo-item-modal>
     </div>
-  </div>
-
-<div class="container py-5">
-   <div class="row">
-
-    <div *ngFor="let todoItem of todoItems" style="height:450px;" class="col-3 ">
-      <mat-card style="height: 150px">
-          
-        <mat-card-header>
-            <mat-card-title>{{todoItem.description}}</mat-card-title>
-            <mat-card-subtitle>
-                <mat-checkbox [checked]="todoItem.isDone"(change)="valueChange(todoItems,todoItem,$event)">Done</mat-checkbox>
-            </mat-card-subtitle>
-        </mat-card-header>
-        
-      </mat-card>
-    </div>
-
-  </div>
 </div>
+
+<div class="container">
+    <div class="row display-flex">
+ 
+     <div *ngFor="let todoItem of todoItems" style="height:250px;" class="col-3 ">
+       <mat-card class="cards">
+           
+         <mat-card-header>
+             <mat-card-title>{{todoItem.description}}</mat-card-title>
+             
+             <mat-card-subtitle>
+                 <mat-checkbox id=doneCheckbox [checked]="todoItem.isDone"(change)="valueChange(todoItems,todoItem,$event)">Done</mat-checkbox>
+                 <hr>
+                 <button type="button" class="btn btn-danger btn-xs" (click)="delete(todoItem, $event)">Delete</button>
+             </mat-card-subtitle>
+         </mat-card-header>
+         
+       </mat-card>
+     </div>
+ 
+   </div>
+ </div>
 
 
