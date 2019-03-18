@@ -1,3 +1,4 @@
+import { TodoItem } from 'src/app/models/todo-item';
 import { TodoItem } from './../../models/todo-item';
 import { Component, OnInit, OnDestroy, OnChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -43,9 +44,18 @@ export class TodoListItemComponent implements OnInit, OnDestroy {
         if (ix > -1) { this.todoItems[ix] = todoItem; }
       });
     todoItem = undefined;
+    }
   }
-}
 
+  delete(todoItem, $event){
+    console.log("delete wordt aangeroepen");
+    console.log("the id is: ", todoItem.id);
+    this.service.deleteTodoItem(todoItem.id).subscribe();
+    this.service.getAll();
+    window.location.reload();
+
+
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
