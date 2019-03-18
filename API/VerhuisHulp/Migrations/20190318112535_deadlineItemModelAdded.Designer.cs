@@ -11,9 +11,10 @@ using System;
 namespace VerhuisHulp.Migrations
 {
     [DbContext(typeof(VerhuisHulpContext))]
-    partial class VerhuisHulpContextModelSnapshot : ModelSnapshot
+    [Migration("20190318112535_deadlineItemModelAdded")]
+    partial class deadlineItemModelAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
