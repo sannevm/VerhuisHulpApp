@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace VerhuisHulp.Models
 {
-    public class TodoItem
-    { 
+    public class DeadlineItem
+    {
         [Key]
         public string Id { get; set; }
 
-        //[Required]
         public string Description { get; set; }
-        public bool IsDone { get; set; }
+        public DateTime Date { get; set; }
+        public ICollection<TodoItem> TodoItems { get; set; }
     }
 }

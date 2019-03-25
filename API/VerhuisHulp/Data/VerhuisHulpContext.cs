@@ -13,4 +13,6 @@ using VerhuisHulp.Models;
         }
 
         public DbSet<VerhuisHulp.Models.TodoItem> TodoItem { get; set; }
+
+        public DbSet<VerhuisHulp.Models.DeadlineItem> DeadlineItem { get; set; }
     }
