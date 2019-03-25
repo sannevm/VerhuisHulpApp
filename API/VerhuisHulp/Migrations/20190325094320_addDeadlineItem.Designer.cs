@@ -11,8 +11,8 @@ using System;
 namespace VerhuisHulp.Migrations
 {
     [DbContext(typeof(VerhuisHulpContext))]
-    [Migration("20190318112535_deadlineItemModelAdded")]
-    partial class deadlineItemModelAdded
+    [Migration("20190325094320_addDeadlineItem")]
+    partial class addDeadlineItem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,14 +28,9 @@ namespace VerhuisHulp.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<string>("TodoItemId");
+                    b.Property<string>("Description");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TodoItemId");
 
                     b.ToTable("DeadlineItem");
                 });
@@ -47,8 +42,7 @@ namespace VerhuisHulp.Migrations
 
                     b.Property<string>("DeadlineItemId");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
 
                     b.Property<bool>("IsDone");
 
@@ -57,13 +51,6 @@ namespace VerhuisHulp.Migrations
                     b.HasIndex("DeadlineItemId");
 
                     b.ToTable("TodoItem");
-                });
-
-            modelBuilder.Entity("VerhuisHulp.Models.DeadlineItem", b =>
-                {
-                    b.HasOne("VerhuisHulp.Models.TodoItem", "TodoItem")
-                        .WithMany()
-                        .HasForeignKey("TodoItemId");
                 });
 
             modelBuilder.Entity("VerhuisHulp.Models.TodoItem", b =>

@@ -11,7 +11,7 @@ namespace VerhuisHulp.Models
         [Key]
         public string Id { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
         public bool IsDone { get; set; }
     }

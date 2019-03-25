@@ -11,10 +11,8 @@ namespace VerhuisHulp.Models
         [Key]
         public string Id { get; set; }
 
-        [Required]
         public string Description { get; set; }
         public DateTime Date { get; set; }
-        public TodoItem TodoItem { get; set; }
-        public TodoItem[] TodoItems { get; set; }
+        public ICollection<TodoItem> TodoItems { get; set; }
     }
 }

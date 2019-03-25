@@ -27,14 +27,9 @@ namespace VerhuisHulp.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
-
-                    b.Property<string>("TodoItemId");
+                    b.Property<string>("Description");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TodoItemId");
 
                     b.ToTable("DeadlineItem");
                 });
@@ -46,8 +41,7 @@ namespace VerhuisHulp.Migrations
 
                     b.Property<string>("DeadlineItemId");
 
-                    b.Property<string>("Description")
-                        .IsRequired();
+                    b.Property<string>("Description");
 
                     b.Property<bool>("IsDone");
 
@@ -56,13 +50,6 @@ namespace VerhuisHulp.Migrations
                     b.HasIndex("DeadlineItemId");
 
                     b.ToTable("TodoItem");
-                });
-
-            modelBuilder.Entity("VerhuisHulp.Models.DeadlineItem", b =>
-                {
-                    b.HasOne("VerhuisHulp.Models.TodoItem", "TodoItem")
-                        .WithMany()
-                        .HasForeignKey("TodoItemId");
                 });
 
             modelBuilder.Entity("VerhuisHulp.Models.TodoItem", b =>
