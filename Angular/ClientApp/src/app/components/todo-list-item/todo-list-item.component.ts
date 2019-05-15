@@ -1,5 +1,4 @@
 import { TodoItem } from 'src/app/models/todo-item';
-import { TodoItem } from './../../models/todo-item';
 import { Component, OnInit, OnDestroy, OnChanges, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TodoListItemService } from 'src/app/services/todo-list-item.service';
